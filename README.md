@@ -1,104 +1,24 @@
-<p align="center">
-    <h1 align="center">
-        <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://github.com/semaphore-protocol/website/blob/main/static/img/semaphore-icon-dark.svg">
-            <source media="(prefers-color-scheme: light)" srcset="https://github.com/semaphore-protocol/website/blob/main/static/img/semaphore-icon.svg">
-            <img width="40" alt="Semaphore icon." src="https://github.com/semaphore-protocol/website/blob/main/static/img/semaphore-icon.svg">
-        </picture>
-        Semaphore Boilerplate
-    </h1>
-</p>
+# ETH Bogota - Chain Statement - Smart Contract
 
-<p align="center">
-    <a href="https://github.com/semaphore-protocol" target="_blank">
-        <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
-    </a>
-    <a href="https://github.com/semaphore-protocol/boilerplate/blob/main/LICENSE">
-        <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/boilerplate.svg?style=flat-square">
-    </a>
-    <a href="https://github.com/semaphore-protocol/semaphore.js/actions?query=workflow%3Astyle">
-        <img alt="GitHub Workflow style" src="https://img.shields.io/github/workflow/status/semaphore-protocol/semaphore.js/style?label=style&style=flat-square&logo=github">
-    </a>
-    <a href="https://eslint.org/">
-        <img alt="Linter eslint" src="https://img.shields.io/badge/linter-eslint-8080f2?style=flat-square&logo=eslint">
-    </a>
-    <a href="https://prettier.io/">
-        <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
-    </a>
-</p>
+We are builidng our smart contract on top of [Semaphore](https://semaphore.appliedzkp.org/).
 
-| The repository is divided into three components: [web app](https://github.com/semaphore-protocol/boilerplate/tree/main/apps/web-app), [relay](https://github.com/semaphore-protocol/boilerplate/tree/main/apps/relay) and [contracts](https://github.com/semaphore-protocol/boilerplate/tree/main/apps/contracts). The app allows users to create their own Semaphore identity and create events where only members can post reviews anonymously. |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+## What is Semaphore
 
-```mermaid
-flowchart LR
+Semaphore is a zero-knowledge protocol that allows you to cast a signal (for example, a vote or endorsement) as a provable group member without revealing your identity. Additionally, it provides a simple mechanism to prevent double-signaling. Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
 
-A(Web App) -->|Create events| C(Contracts)
-A -->|Join events| B(Relay)
-A -->|Post event reviews| B
-B --> C
-```
+## Smart contract overview
 
-## 🛠 Install
+We are refering to [Semaphore boilerplate](https://github.com/semaphore-protocol/boilerplate).
 
-Use this repository as a Github [template](https://github.com/semaphore-protocol/boilerplate/generate).
+Smart Contracts:
 
-Clone your repository:
+1. ChainStatement.sol: Main logic of the code, includes adding user to group, verify proof, and set Relayer address.
+2. BalanceGiver.sol: Mint tokens for users. (Testing purpose)
+3. DummyToken.sol: General ERC20 Token. (Testing purpose)
+4. Greeter.sol: Simple execution sample of using semaphore.
 
-```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-```
+### Key functionalities:
 
-and install the dependencies:
-
-```bash
-cd <your-repo> && yarn
-```
-
-## 📜 Usage
-
-Copy the `.env.example` file as `.env`:
-
-```bash
-cp .env.example .env
-```
-
-and add your environment variables.
-
-ℹ️ You can use the default ones to start the app in a local network.
-
-### Start the app
-
-Run the following commands sequentially in three separate tabs of the terminal:
-
-```bash
-yarn start:contracts
-```
-
-```bash
-yarn start:web-app
-```
-
-```bash
-yarn start:relay
-```
-
-### Code quality and formatting
-
-Run [ESLint](https://eslint.org/) to analyze the code and catch bugs:
-
-```bash
-yarn lint
-```
-
-Run [Prettier](https://prettier.io/) to check formatting rules:
-
-```bash
-yarn prettier
-```
-
-or to automatically format the code:
-
-```bash
-yarn prettier:write
-```
+1. Add User To Group: ` function addNewUser(uint256 identityCommitment, address userAddr) external onlyRelayer`
+2. Create Proof that prove user exists in the group: `generateProof(users[0].identity, group, BigInt(groupId), greeting, {wasmFilePath,zkeyFilePath })`
+3. Verify User is in the group: `semaphore.verifyProof(groupId, merkleTreeRoot, signal, nullifierHash, groupId, proof)`
