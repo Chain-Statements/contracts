@@ -50,3 +50,20 @@ Smart Contracts:
 | IncrementalBinaryTree library | 0x61CDB71DCD2B240F2113196d9Fa9bd1E3eF0C0E2 |
 | Semaphore                     | 0xBf1a5dA85CF825422C1201eAe379FAB451002677 |
 | ChainStatment                 | 0xE84e84fC9F7c7B1453C4414Cc2eB437D8A89e1dE |
+
+## Start Building
+
+1. Install packages: `yarn add`
+2. Run the following commands sequentially in three separate tabs of the terminal:
+
+```bash
+yarn start:contracts
+```
+
+```bash
+yarn start:web-app
+```
+
+```bash
+yarn start:relay
+```
