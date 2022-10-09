@@ -10,7 +10,7 @@ import { resolve } from "path"
 import "solidity-coverage"
 import { config } from "./package.json"
 import "./tasks/deploy"
-
+import "./tasks/deploy-goerli"
 dotenvConfig({ path: resolve(__dirname, "../../.env") });
 let accounts:any;
 if (process.env.ETHEREUM_PRIVATE_KEY) {
@@ -51,13 +51,24 @@ const hardhatConfig: HardhatUserConfig = {
             chainId : 80001,
             accounts
         },
+        optimism : {
+            url : "https://goerli.optimism.io/",
+            chainId : 420,
+            accounts
+        },
         hardhat: {
             chainId: 1337
         },
         localhost : {
             url : "http://127.0.0.1:8545/",
             chainId : 1337
-        }
+        },
+        goerli : {
+            url : "https://eth-goerli.g.alchemy.com/v2/hWfQJAPySBhyWgNWQfuctPoP3nkqAL45",
+            chainId : 5,
+            accounts
+        },
+        
     },
     gasReporter: {
         currency: "USD",
