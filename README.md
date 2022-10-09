@@ -41,15 +41,15 @@ Smart Contracts:
 | Semaphore                     | 0x206e2F907c54B49416CD4d26CFCdCa656E528dD2 |
 | ChainStatment                 | 0x6f7cAf248770bA7dc49c6Fb13D1F10658758BED3 |
 
-### Optimism
+### Optimism Goerli
 
 | Title                         | Address                                    |
 | ----------------------------- | ------------------------------------------ |
-| Verifier20                    | 0x2B1CC48F967dE074DA9f9a554aCF63f0789AACcE |
-| Poseidon library              | 0x844791b158f1bdED6522A3f44d060F7b8269Ab96 |
-| IncrementalBinaryTree library | 0x61CDB71DCD2B240F2113196d9Fa9bd1E3eF0C0E2 |
-| Semaphore                     | 0xBf1a5dA85CF825422C1201eAe379FAB451002677 |
-| ChainStatment                 | 0xE84e84fC9F7c7B1453C4414Cc2eB437D8A89e1dE |
+| Verifier20                    | 0x2686540BE833cFB49F1D8BEa13F7c0E46767FC2D |
+| Poseidon library              | 0xe9F49bE29195AFa0BDB483561D547C36f8be5045 |
+| IncrementalBinaryTree library | 0x89168c3604B54EA33Ebf0477a36dA8766d5A5D98 |
+| Semaphore                     | 0x08B2DB74922f00011F3404221cE3d9E6aAE1921D |
+| ChainStatment                 | 0x396064e93017c170477626830DCe671909146981 |
 
 ## Start Building
 
